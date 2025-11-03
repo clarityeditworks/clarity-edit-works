@@ -1,138 +1,438 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clarity Edit Works | Professional Manuscript Editing</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manuscript Editing Services</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%);
+    }
+    
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-button {
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-    <style>
-      body {
-        box-sizing: border-box;
-        font-family: system-ui, -apple-system, sans-serif;
-      }
+    .page {
+      display: none;
+    }
 
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      .hero-gradient {
-        background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%);
-      }
-
-      .service-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-      }
-
-      .cta-button {
-        transition: all 0.3s ease;
-      }
-
-      .cta-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="min-h-full flex flex-col">
-      <!-- Hero Section -->
-      <header class="hero-gradient text-white py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-5xl font-bold mb-4">Professional Manuscript Editing</h1>
-          <p class="text-xl opacity-90">
-            Helping authors bring their stories to life with expert editing services
-          </p>
-        </div>
-      </header>
-
-      <!-- Services Section -->
-      <section class="py-16 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
-            Our Services
-          </h2>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md">
-              <div class="text-4xl mb-4">📖</div>
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">
-                Developmental Editing
-              </h3>
-              <p class="text-gray-600">
-                Comprehensive feedback on plot, structure, character development, and pacing
-                to strengthen your manuscript’s foundation.
-              </p>
-            </div>
-
-            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md">
-              <div class="text-4xl mb-4">✍️</div>
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">
-                Line Editing
-              </h3>
-              <p class="text-gray-600">
-                Refining your prose line by line to enhance clarity, flow, and style while
-                preserving your unique voice.
-              </p>
-            </div>
-
-            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md">
-              <div class="text-4xl mb-4">🔍</div>
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">
-                Copy Editing
-              </h3>
-              <p class="text-gray-600">
-                Meticulous attention to grammar, punctuation, consistency, and formatting
-                to polish your manuscript.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section class="py-16 px-6 bg-gray-100">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-4xl font-bold mb-6 text-gray-800">About Our Approach</h2>
-          <p class="text-lg text-gray-700 leading-relaxed">
-            At Clarity Edit Works, we collaborate with authors to bring out the heart of
-            their stories. Whether you're writing your first novel or your tenth, our editors
-            provide thoughtful, constructive feedback that respects your creative voice
-            while elevating your work to its full potential.
-          </p>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section class="py-16 px-6 bg-white">
-        <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-6 text-gray-800">
-            Ready to Perfect Your Manuscript?
-          </h2>
-          <a
-            href="mailto:clarityeditworks@gmail.com"
-            class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg"
-          >
-            Request Your Free Sample Edit
-          </a>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="bg-gray-800 text-white py-8 px-6 mt-auto">
-        <div class="max-w-6xl mx-auto text-center">
-          <p class="text-gray-300">
-            © 2025 Clarity Edit Works. All rights reserved.
-          </p>
-        </div>
-      </footer>
+    .page.active {
+      display: block;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="min-h-full flex flex-col"><!-- Hero Section -->
+   <header class="hero-gradient text-white py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+     <h1 id="main-title" class="text-5xl font-bold mb-4 cursor-pointer" onclick="navigateToPage('home')">Professional Manuscript Editing</h1>
+     <p id="tagline" class="text-xl opacity-90">Helping authors bring their stories to life with expert editing services</p>
     </div>
-  </body>
+   </header><!-- Main Content Area -->
+   <main class="flex-1"><!-- Home Page -->
+    <div id="page-home" class="page active"><!-- Services Overview Section -->
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+       <h2 id="services-heading" class="text-4xl font-bold text-center mb-12 text-gray-800">My Services</h2>
+       <div class="grid md:grid-cols-3 gap-8"><!-- Service 1 -->
+        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('developmental')">
+         <div class="text-4xl mb-4">
+          📖
+         </div>
+         <h3 id="service-one-title" class="text-2xl font-bold mb-3 text-gray-800">Developmental Editing</h3>
+         <p id="service-one-description" class="text-gray-600 mb-4">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript's foundation.</p>
+         <div class="text-blue-600 font-semibold">
+          Learn More →
+         </div>
+        </div><!-- Service 2 -->
+        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('line')">
+         <div class="text-4xl mb-4">
+          ✍️
+         </div>
+         <h3 id="service-two-title" class="text-2xl font-bold mb-3 text-gray-800">Line Editing</h3>
+         <p id="service-two-description" class="text-gray-600 mb-4">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
+         <div class="text-blue-600 font-semibold">
+          Learn More →
+         </div>
+        </div><!-- Service 3 -->
+        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('copy')">
+         <div class="text-4xl mb-4">
+          🔍
+         </div>
+         <h3 id="service-three-title" class="text-2xl font-bold mb-3 text-gray-800">Copy Editing</h3>
+         <p id="service-three-description" class="text-gray-600 mb-4">Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.</p>
+         <div class="text-blue-600 font-semibold">
+          Learn More →
+         </div>
+        </div>
+       </div>
+      </div>
+     </section><!-- About Section -->
+     <section class="py-16 px-6 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center">
+       <h2 id="about-heading" class="text-4xl font-bold mb-6 text-gray-800">About My Approach</h2>
+       <p id="about-text" class="text-lg text-gray-700 leading-relaxed">I work closely with authors to understand their vision and help them achieve it. Whether you're writing your first novel or your tenth, I provide thoughtful, constructive feedback that respects your creative voice while elevating your work to its full potential.</p>
+      </div>
+     </section><!-- CTA Section -->
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-3xl mx-auto text-center">
+       <h2 id="cta-heading" class="text-3xl font-bold mb-6 text-gray-800">Ready to Perfect Your Manuscript?</h2><button id="cta-button" class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg"> Get Started Today </button>
+      </div>
+     </section>
+    </div><!-- Developmental Editing Page -->
+    <div id="page-developmental" class="page">
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto"><!-- Navigation -->
+       <div class="mb-8"><button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
+       </div>
+       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+        <div class="max-w-4xl mx-auto">
+         <div class="text-center mb-8">
+          <div class="text-6xl mb-4">
+           📖
+          </div>
+          <h1 class="text-4xl font-bold mb-4 text-gray-800">Developmental Editing</h1>
+          <p class="text-xl text-gray-600 mb-8">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript's foundation.</p>
+         </div>
+         <div class="grid md:grid-cols-2 gap-8">
+          <div>
+           <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+           <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Plot structure analysis and recommendations</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Character development assessment</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Pacing and tension evaluation</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Theme and narrative arc guidance</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Detailed editorial letter with actionable feedback</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Chapter-by-chapter notes and suggestions</li>
+           </ul>
+          </div>
+          <div>
+           <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+           <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>First drafts needing structural work</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Manuscripts with plot or character issues</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Authors seeking big-picture feedback</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Novels, novellas, and long-form fiction</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Memoirs and creative nonfiction</li>
+           </ul>
+           <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+            <p class="text-sm text-blue-800"><strong>Timeline:</strong> 2-4 weeks depending on manuscript length</p>
+            <p class="text-sm text-blue-800 mt-2"><strong>Investment:</strong> Starting at $0.008 per word</p>
+           </div>
+          </div>
+         </div>
+         <div class="mt-12 text-center"><button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg"> Get Quote for Developmental Editing </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div><!-- Line Editing Page -->
+    <div id="page-line" class="page">
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto"><!-- Navigation -->
+       <div class="mb-8"><button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
+       </div>
+       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+        <div class="max-w-4xl mx-auto">
+         <div class="text-center mb-8">
+          <div class="text-6xl mb-4">
+           ✍️
+          </div>
+          <h1 class="text-4xl font-bold mb-4 text-gray-800">Line Editing</h1>
+          <p class="text-xl text-gray-600 mb-8">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
+         </div>
+         <div class="grid md:grid-cols-2 gap-8">
+          <div>
+           <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+           <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Sentence-level improvements for clarity</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Flow and rhythm enhancement</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Voice and tone consistency</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Dialogue refinement and authenticity</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Elimination of redundancy and wordiness</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Style and language enhancement</li>
+           </ul>
+          </div>
+          <div>
+           <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+           <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Manuscripts with solid structure</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Authors wanting to polish their prose</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Second or third drafts</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>All genres of creative writing</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Short stories and essays</li>
+           </ul>
+           <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+            <p class="text-sm text-blue-800"><strong>Timeline:</strong> 1-3 weeks depending on manuscript length</p>
+            <p class="text-sm text-blue-800 mt-2"><strong>Investment:</strong> Starting at $0.006 per word</p>
+           </div>
+          </div>
+         </div>
+         <div class="mt-12 text-center"><button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg"> Get Quote for Line Editing </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div><!-- Copy Editing Page -->
+    <div id="page-copy" class="page">
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto"><!-- Navigation -->
+       <div class="mb-8"><button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
+       </div>
+       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+        <div class="max-w-4xl mx-auto">
+         <div class="text-center mb-8">
+          <div class="text-6xl mb-4">
+           🔍
+          </div>
+          <h1 class="text-4xl font-bold mb-4 text-gray-800">Copy Editing</h1>
+          <p class="text-xl text-gray-600 mb-8">Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.</p>
+         </div>
+         <div class="grid md:grid-cols-2 gap-8">
+          <div>
+           <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+           <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Grammar and punctuation corrections</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Spelling and typo elimination</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Consistency in style and formatting</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Fact-checking and continuity review</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Style guide adherence (Chicago, AP, MLA)</li>
+            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Citation and reference formatting</li>
+           </ul>
+          </div>
+          <div>
+           <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+           <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Final drafts ready for publication</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Manuscripts needing technical polish</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Self-publishing authors</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Academic and professional writing</li>
+            <li class="flex items-start"><span class="text-green-600 mr-2">✓</span>Business documents and proposals</li>
+           </ul>
+           <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+            <p class="text-sm text-blue-800"><strong>Timeline:</strong> 1-2 weeks depending on manuscript length</p>
+            <p class="text-sm text-blue-800 mt-2"><strong>Investment:</strong> Starting at $0.004 per word</p>
+           </div>
+          </div>
+         </div>
+         <div class="mt-12 text-center"><button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg"> Get Quote for Copy Editing </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+   </main><!-- Footer -->
+   <footer class="bg-gray-800 text-white py-8 px-6 mt-auto">
+    <div class="max-w-6xl mx-auto text-center">
+     <p id="footer-text" class="text-gray-300">© 2024 Professional Manuscript Editing. All rights reserved.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: "#1e3a5f",
+      surface_color: "#f9fafb",
+      text_color: "#1f2937",
+      primary_action_color: "#2563eb",
+      secondary_action_color: "#374151",
+      font_family: "system-ui, -apple-system, sans-serif",
+      font_size: 16,
+      main_title: "Professional Manuscript Editing",
+      tagline: "Helping authors bring their stories to life with expert editing services",
+      services_heading: "My Services",
+      service_one_title: "Developmental Editing",
+      service_one_description: "Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript's foundation.",
+      service_two_title: "Line Editing",
+      service_two_description: "Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.",
+      service_three_title: "Copy Editing",
+      service_three_description: "Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.",
+      about_heading: "About My Approach",
+      about_text: "I work closely with authors to understand their vision and help them achieve it. Whether you're writing your first novel or your tenth, I provide thoughtful, constructive feedback that respects your creative voice while elevating your work to its full potential.",
+      cta_heading: "Ready to Perfect Your Manuscript?",
+      cta_button_text: "Get Started Today",
+      footer_text: "© 2024 Professional Manuscript Editing. All rights reserved."
+    };
+
+    async function onConfigChange(config) {
+      const baseFontStack = 'system-ui, -apple-system, sans-serif';
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+      
+      // Apply colors
+      const heroSection = document.querySelector('.hero-gradient');
+      heroSection.style.background = `linear-gradient(135deg, ${config.background_color || defaultConfig.background_color} 0%, ${config.secondary_action_color || defaultConfig.secondary_action_color} 100%)`;
+      
+      document.querySelectorAll('.bg-gray-50').forEach(el => {
+        el.style.backgroundColor = config.surface_color || defaultConfig.surface_color;
+      });
+      
+      document.querySelectorAll('.text-gray-800').forEach(el => {
+        el.style.color = config.text_color || defaultConfig.text_color;
+      });
+      
+      const ctaButton = document.getElementById('cta-button');
+      ctaButton.style.backgroundColor = config.primary_action_color || defaultConfig.primary_action_color;
+      
+      // Apply fonts
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      // Apply font sizes
+      document.getElementById('main-title').style.fontSize = `${baseSize * 2}px`;
+      document.getElementById('tagline').style.fontSize = `${baseSize * 1.25}px`;
+      document.querySelectorAll('h2').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.75}px`;
+      });
+      document.querySelectorAll('h3').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.25}px`;
+      });
+      document.querySelectorAll('p').forEach(el => {
+        el.style.fontSize = `${baseSize}px`;
+      });
+      
+      // Apply text content
+      document.getElementById('main-title').textContent = config.main_title || defaultConfig.main_title;
+      document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('services-heading').textContent = config.services_heading || defaultConfig.services_heading;
+      document.getElementById('service-one-title').textContent = config.service_one_title || defaultConfig.service_one_title;
+      document.getElementById('service-one-description').textContent = config.service_one_description || defaultConfig.service_one_description;
+      document.getElementById('service-two-title').textContent = config.service_two_title || defaultConfig.service_two_title;
+      document.getElementById('service-two-description').textContent = config.service_two_description || defaultConfig.service_two_description;
+      document.getElementById('service-three-title').textContent = config.service_three_title || defaultConfig.service_three_title;
+      document.getElementById('service-three-description').textContent = config.service_three_description || defaultConfig.service_three_description;
+      document.getElementById('about-heading').textContent = config.about_heading || defaultConfig.about_heading;
+      document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+      document.getElementById('cta-heading').textContent = config.cta_heading || defaultConfig.cta_heading;
+      document.getElementById('cta-button').textContent = config.cta_button_text || defaultConfig.cta_button_text;
+      document.getElementById('footer-text').textContent = config.footer_text || defaultConfig.footer_text;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["main_title", config.main_title || defaultConfig.main_title],
+        ["tagline", config.tagline || defaultConfig.tagline],
+        ["services_heading", config.services_heading || defaultConfig.services_heading],
+        ["service_one_title", config.service_one_title || defaultConfig.service_one_title],
+        ["service_one_description", config.service_one_description || defaultConfig.service_one_description],
+        ["service_two_title", config.service_two_title || defaultConfig.service_two_title],
+        ["service_two_description", config.service_two_description || defaultConfig.service_two_description],
+        ["service_three_title", config.service_three_title || defaultConfig.service_three_title],
+        ["service_three_description", config.service_three_description || defaultConfig.service_three_description],
+        ["about_heading", config.about_heading || defaultConfig.about_heading],
+        ["about_text", config.about_text || defaultConfig.about_text],
+        ["cta_heading", config.cta_heading || defaultConfig.cta_heading],
+        ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text],
+        ["footer_text", config.footer_text || defaultConfig.footer_text]
+      ]);
+    }
+
+    // Page navigation functionality
+    function navigateToPage(pageType) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      // Show selected page
+      document.getElementById(`page-${pageType}`).classList.add('active');
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9987aa22f54cbf8b',t:'MTc2MjEyODc5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
