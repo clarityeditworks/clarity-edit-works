@@ -3,4 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Editing Samples -
+  <title>Free Editing Samples - Clarity Edit Works</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    .hero-gradient { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%); }
+    .cta-button { transition: all 0.3s ease; }
+    .cta-button:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+    th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: left; }
+    th { background-color: #2563eb; color: white; }
+    tr:nth-child(even) { background-color: #f9fafb; }
+  </style>
+</head>
+<body>
+
+<div class="min-h-full flex flex-col">
+  <!-- Hero Section -->
+  <header class="hero-gradient text-white py-20 px-6 text-center">
+    <h1 class="text-5xl font-bold mb-4">Free Editing Samples</h1>
+    <p class="text-xl opacity-90 max-w-3xl mx-auto">See how Clarity Edit Works can elevate your manuscript. Sample edits show the quality and clarity we bring to your work.</p>
+  </header>
+
+  <main class="flex-1 py-16 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 text-gray-800">Sample Pricing Overview</h2>
+      <p class="text-lg text-gray-700 mb-6">Below are the most commonly requested free editing samples. These are indicative of typical rates for our editorial work:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Service Type</th>
+            <th>Sample Length</th>
+            <th>Estimated Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Developmental Editing</td>
+            <td>1-2 Chapters (5,000 words)</td>
+            <td>$40 - $60</td>
+          </tr>
+          <tr>
+            <td>Line Editing</td>
+            <td>1,000 words</td>
+            <td>$6 - $10</td>
+          </tr>
+          <tr>
+            <td>Copy Editing</td>
+            <td>1,000 words</td>
+            <td>$4 - $8</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="text-gray-700 mt-8">Request a free sample to see how we can polish your writing while preserving your unique voice.</p>
+
+      <div class="mt-12">
+        <button onclick="window.location.href='index.html'" class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">
+          ← Back to Main Page
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-8 px-6 mt-auto text-center">
+    <p>© 2025 Clarity Edit Works. All rights reserved.</p>
+  </footer>
+</div>
+
+</body>
+</html>
