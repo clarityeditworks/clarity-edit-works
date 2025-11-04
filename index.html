@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manuscript Editing Services</title>
+  <title>Clarity Edit Works</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -15,132 +15,111 @@
     .cta-button:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
     .page { display: none; }
     .page.active { display: block; }
-
-    /* Fixed Free Samples Button */
-    #free-samples-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      background-color: #2563eb;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      cursor: pointer;
+    .floating-btn {
+      position: fixed; bottom: 24px; right: 24px; 
+      background-color: #1e3a5f; color: white;
+      padding: 14px 22px; border-radius: 50px; 
+      font-weight: 600; font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       transition: all 0.3s ease;
     }
-    #free-samples-btn:hover { background-color: #1e40af; transform: scale(1.05); }
+    .floating-btn:hover { background-color: #2d5a7b; transform: scale(1.05); }
   </style>
 </head>
 <body>
-
 <div class="min-h-full flex flex-col">
   <!-- Hero Section -->
   <header class="hero-gradient text-white py-20 px-6 text-center">
-    <h1 id="main-title" class="text-5xl font-bold mb-4 cursor-pointer" onclick="navigateToPage('home')">Professional Manuscript Editing</h1>
-    <p id="tagline" class="text-xl opacity-90">Helping authors bring their stories to life with expert editing services</p>
+    <h1 id="main-title" class="text-5xl font-bold mb-4 cursor-pointer" onclick="navigateToPage('home')">Clarity Edit Works</h1>
+    <p id="tagline" class="text-xl opacity-90">Bringing precision and polish to every page you write</p>
   </header>
 
+  <!-- Main Content -->
   <main class="flex-1">
-    <!-- Home Page -->
     <div id="page-home" class="page active">
       <section class="py-16 px-6 bg-white">
         <div class="max-w-6xl mx-auto text-center">
-          <h2 class="text-4xl font-bold mb-12 text-gray-800">My Services</h2>
+          <h2 class="text-4xl font-bold mb-12 text-gray-800">Editorial Services</h2>
           <div class="grid md:grid-cols-3 gap-8">
+            <!-- Developmental Editing -->
             <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('developmental')">
-              <div class="text-6xl mb-4">📖</div>
+              <div class="text-4xl mb-4">📖</div>
               <h3 class="text-2xl font-bold mb-3 text-gray-800">Developmental Editing</h3>
-              <p class="text-gray-600 mb-4">Comprehensive feedback on plot, structure, character development, and pacing.</p>
+              <p class="text-gray-600 mb-4">Big-picture analysis of structure, pacing, and character development.</p>
               <div class="text-blue-600 font-semibold">Learn More →</div>
             </div>
+            <!-- Line Editing -->
             <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('line')">
-              <div class="text-6xl mb-4">✍️</div>
+              <div class="text-4xl mb-4">✍️</div>
               <h3 class="text-2xl font-bold mb-3 text-gray-800">Line Editing</h3>
-              <p class="text-gray-600 mb-4">Refining your prose line by line for clarity, flow, and style.</p>
+              <p class="text-gray-600 mb-4">Enhancing flow, rhythm, and language precision sentence by sentence.</p>
               <div class="text-blue-600 font-semibold">Learn More →</div>
             </div>
+            <!-- Copy Editing -->
             <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('copy')">
-              <div class="text-6xl mb-4">🔍</div>
+              <div class="text-4xl mb-4">🔍</div>
               <h3 class="text-2xl font-bold mb-3 text-gray-800">Copy Editing</h3>
-              <p class="text-gray-600 mb-4">Meticulous attention to grammar, punctuation, consistency, and formatting.</p>
+              <p class="text-gray-600 mb-4">Grammar, punctuation, and consistency perfected for publication-ready polish.</p>
               <div class="text-blue-600 font-semibold">Learn More →</div>
             </div>
           </div>
         </div>
       </section>
-
-      <!-- About Section -->
-      <section class="py-16 px-6 bg-gray-100 text-center">
-        <h2 class="text-4xl font-bold mb-6 text-gray-800">About My Approach</h2>
-        <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-          I work closely with authors to understand their vision and help them achieve it. Whether you're writing your first novel or your tenth, I provide thoughtful, constructive feedback that respects your creative voice while elevating your work to its full potential.
-        </p>
-      </section>
-
-      <!-- CTA Section -->
-      <section class="py-16 px-6 bg-white text-center">
-        <h2 class="text-3xl font-bold mb-6 text-gray-800">Ready to Perfect Your Manuscript?</h2>
-        <button class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Get Started Today</button>
-      </section>
     </div>
 
-    <!-- Developmental, Line, Copy pages (simplified version) -->
-    <!-- Developmental -->
+    <!-- Developmental Editing -->
     <div id="page-developmental" class="page">
       <section class="py-16 px-6 bg-white max-w-6xl mx-auto">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back to Services</button>
-        <div class="bg-gray-50 rounded-lg p-12 shadow-lg text-center">
-          <div class="text-6xl mb-4">📖</div>
-          <h1 class="text-4xl font-bold mb-4 text-gray-800">Developmental Editing</h1>
-          <p class="text-xl text-gray-600 mb-8">Comprehensive feedback on plot, structure, character development, and pacing.</p>
+        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back</button>
+        <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Developmental Editing</h1>
+        <p class="text-gray-700 mb-8 text-lg">Developmental editing focuses on structure, character arcs, and thematic depth. I help refine your story’s foundation so each chapter serves a clear purpose and keeps readers engaged.</p>
+        <div class="bg-gray-50 rounded-lg p-8">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
+          <p class="text-gray-700 italic">Original: “She ran fast because she was scared.”<br> Edited: “Terror pushed her forward, her breath slicing through the cold night air.”</p>
         </div>
       </section>
     </div>
 
-    <!-- Line -->
+    <!-- Line Editing -->
     <div id="page-line" class="page">
       <section class="py-16 px-6 bg-white max-w-6xl mx-auto">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back to Services</button>
-        <div class="bg-gray-50 rounded-lg p-12 shadow-lg text-center">
-          <div class="text-6xl mb-4">✍️</div>
-          <h1 class="text-4xl font-bold mb-4 text-gray-800">Line Editing</h1>
-          <p class="text-xl text-gray-600 mb-8">Refining your prose line by line for clarity, flow, and style.</p>
+        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back</button>
+        <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Line Editing</h1>
+        <p class="text-gray-700 mb-8 text-lg">This stage polishes your language. I refine sentence rhythm, eliminate clutter, and strengthen word choice for natural flow and voice.</p>
+        <div class="bg-gray-50 rounded-lg p-8">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
+          <p class="text-gray-700 italic">Original: “He was very tired and decided to go to bed.”<br> Edited: “Exhaustion dragged him toward his bed like a tide pulling him under.”</p>
         </div>
       </section>
     </div>
 
-    <!-- Copy -->
+    <!-- Copy Editing -->
     <div id="page-copy" class="page">
       <section class="py-16 px-6 bg-white max-w-6xl mx-auto">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back to Services</button>
-        <div class="bg-gray-50 rounded-lg p-12 shadow-lg text-center">
-          <div class="text-6xl mb-4">🔍</div>
-          <h1 class="text-4xl font-bold mb-4 text-gray-800">Copy Editing</h1>
-          <p class="text-xl text-gray-600 mb-8">Meticulous attention to grammar, punctuation, consistency, and formatting.</p>
+        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back</button>
+        <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Copy Editing</h1>
+        <p class="text-gray-700 mb-8 text-lg">Copy editing ensures your manuscript meets professional publishing standards, correcting grammar, punctuation, and style inconsistencies.</p>
+        <div class="bg-gray-50 rounded-lg p-8">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
+          <p class="text-gray-700 italic">Original: “Its a beautiful day.”<br> Edited: “It’s a beautiful day.”</p>
         </div>
       </section>
     </div>
   </main>
 
-  <footer class="bg-gray-800 text-white py-8 px-6 mt-auto text-center">
-    <p>© 2025 Clarity Edit Works. All rights reserved.</p>
+  <footer class="bg-gray-900 text-white text-center py-6 text-sm">
+    © 2025 Clarity Edit Works. All rights reserved.
   </footer>
+
+  <a href="samples.html" class="floating-btn">Request Free Sample</a>
 </div>
 
-<!-- Fixed Free Samples Button -->
-<button id="free-samples-btn" onclick="navigateToPage('samples')">Free Samples</button>
-
 <script>
-  function navigateToPage(pageType) {
-    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-    const page = document.getElementById(`page-${pageType}`);
-    if(page) page.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+function navigateToPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(`page-${pageId}`).classList.add('active');
+  window.scrollTo(0, 0);
+}
 </script>
-
 </body>
 </html>
