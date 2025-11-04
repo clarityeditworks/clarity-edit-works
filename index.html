@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clarity Edit Works</title>
+  <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -37,71 +38,245 @@
       transform: scale(1.05);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
   </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body>
   <div class="min-h-full flex flex-col">
+
    <!-- Hero Section -->
    <header class="hero-gradient text-white py-20 px-6">
     <div class="max-w-4xl mx-auto text-center">
-     <h1 id="main-title" class="text-5xl font-bold mb-4">Clarity Edit Works</h1>
+     <h1 id="main-title" class="text-5xl font-bold mb-4 cursor-pointer" onclick="navigateToPage('home')">Clarity Edit Works</h1>
      <p id="tagline" class="text-xl opacity-90">Bringing writers’ imaginations to life, one word at a time.</p>
     </div>
    </header>
 
-   <!-- Services Section -->
-   <section class="py-16 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-     <h2 id="services-heading" class="text-4xl font-bold text-center mb-12 text-gray-800">Our Services</h2>
-     <div class="grid md:grid-cols-3 gap-8">
-      <!-- Service 1 -->
-      <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md">
-       <div class="text-4xl mb-4">📖</div>
-       <h3 id="service-one-title" class="text-2xl font-bold mb-3 text-gray-800">Developmental Editing</h3>
-       <p id="service-one-description" class="text-gray-600">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript’s foundation.</p>
+   <!-- Main Content Area -->
+   <main class="flex-1">
+
+    <!-- Home Page -->
+    <div id="page-home" class="page active">
+
+     <!-- Services Overview Section -->
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+       <h2 id="services-heading" class="text-4xl font-bold text-center mb-12 text-gray-800">My Services</h2>
+       <div class="grid md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('developmental')">
+         <div class="text-4xl mb-4">📖</div>
+         <h3 class="text-2xl font-bold mb-3 text-gray-800">Developmental Editing</h3>
+         <p class="text-gray-600 mb-4">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript's foundation.</p>
+         <div class="text-blue-600 font-semibold">Learn More →</div>
+        </div>
+        <!-- Service 2 -->
+        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('line')">
+         <div class="text-4xl mb-4">✍️</div>
+         <h3 class="text-2xl font-bold mb-3 text-gray-800">Line Editing</h3>
+         <p class="text-gray-600 mb-4">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
+         <div class="text-blue-600 font-semibold">Learn More →</div>
+        </div>
+        <!-- Service 3 -->
+        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('copy')">
+         <div class="text-4xl mb-4">🔍</div>
+         <h3 class="text-2xl font-bold mb-3 text-gray-800">Copy Editing</h3>
+         <p class="text-gray-600 mb-4">Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.</p>
+         <div class="text-blue-600 font-semibold">Learn More →</div>
+        </div>
+       </div>
       </div>
+     </section>
 
-      <!-- Service 2 -->
-      <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md">
-       <div class="text-4xl mb-4">✍️</div>
-       <h3 id="service-two-title" class="text-2xl font-bold mb-3 text-gray-800">Line Editing</h3>
-       <p id="service-two-description" class="text-gray-600">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
+     <!-- About Section -->
+     <section class="py-16 px-6 bg-gray-100">
+      <div class="max-w-4xl mx-auto text-center">
+       <h2 class="text-4xl font-bold mb-6 text-gray-800">About My Approach</h2>
+       <p class="text-lg text-gray-700 leading-relaxed">
+        I work closely with authors to understand their vision and help them achieve it. Whether you're writing your first novel or your tenth, I provide thoughtful, constructive feedback that respects your creative voice while elevating your work to its full potential.
+       </p>
       </div>
+     </section>
 
-      <!-- Service 3 -->
-      <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md">
-       <div class="text-4xl mb-4">🔍</div>
-       <h3 id="service-three-title" class="text-2xl font-bold mb-3 text-gray-800">Copy Editing</h3>
-       <p id="service-three-description" class="text-gray-600">Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.</p>
+     <!-- CTA Section -->
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-3xl mx-auto text-center">
+       <h2 class="text-3xl font-bold mb-6 text-gray-800">Ready to Perfect Your Manuscript?</h2>
+       <button class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Get Started Today</button>
       </div>
-     </div>
-    </div>
-   </section>
+     </section>
 
-   <!-- About Section -->
-   <section class="py-16 px-6 bg-gray-100">
-    <div class="max-w-4xl mx-auto text-center">
-     <h2 id="about-heading" class="text-4xl font-bold mb-6 text-gray-800">About Our Approach</h2>
-     <p id="about-text" class="text-lg text-gray-700 leading-relaxed">We work closely with authors to understand their vision and help them achieve it. Whether you're writing your first novel or your tenth, we provide thoughtful, constructive feedback that respects your creative voice while elevating your work to its full potential.</p>
     </div>
-   </section>
 
-   <!-- CTA Section -->
-   <section class="py-16 px-6 bg-white">
-    <div class="max-w-3xl mx-auto text-center">
-     <h2 id="cta-heading" class="text-3xl font-bold mb-6 text-gray-800">Ready to Perfect Your Manuscript?</h2>
-     <button id="cta-button" class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">
-      Get Started Today
-     </button>
+    <!-- Developmental Editing Page -->
+    <div id="page-developmental" class="page">
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+       <div class="mb-8">
+        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
+       </div>
+       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+        <div class="max-w-4xl mx-auto text-center mb-8">
+         <div class="text-6xl mb-4">📖</div>
+         <h1 class="text-4xl font-bold mb-4 text-gray-800">Developmental Editing</h1>
+         <p class="text-xl text-gray-600 mb-8">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript's foundation.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+         <div>
+          <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+          <ul class="space-y-3 text-gray-700">
+           <li>• Plot structure analysis and recommendations</li>
+           <li>• Character development assessment</li>
+           <li>• Pacing and tension evaluation</li>
+           <li>• Theme and narrative arc guidance</li>
+           <li>• Detailed editorial letter with actionable feedback</li>
+           <li>• Chapter-by-chapter notes and suggestions</li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+          <ul class="space-y-3 text-gray-700">
+           <li>✓ First drafts needing structural work</li>
+           <li>✓ Manuscripts with plot or character issues</li>
+           <li>✓ Authors seeking big-picture feedback</li>
+           <li>✓ Novels, novellas, and long-form fiction</li>
+           <li>✓ Memoirs and creative nonfiction</li>
+          </ul>
+          <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+           <p><strong>Timeline:</strong> 2–4 weeks depending on manuscript length</p>
+           <p class="mt-2"><strong>Investment:</strong> Starting at $0.008 per word</p>
+          </div>
+         </div>
+        </div>
+        <div class="mt-12 text-center">
+         <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Get Quote for Developmental Editing</button>
+        </div>
+       </div>
+      </div>
+     </section>
     </div>
-   </section>
+
+    <!-- Line Editing Page -->
+    <div id="page-line" class="page">
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+       <div class="mb-8">
+        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
+       </div>
+       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+        <div class="max-w-4xl mx-auto text-center mb-8">
+         <div class="text-6xl mb-4">✍️</div>
+         <h1 class="text-4xl font-bold mb-4 text-gray-800">Line Editing</h1>
+         <p class="text-xl text-gray-600 mb-8">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+         <div>
+          <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+          <ul class="space-y-3 text-gray-700">
+           <li>• Sentence-level improvements for clarity</li>
+           <li>• Flow and rhythm enhancement</li>
+           <li>• Voice and tone consistency</li>
+           <li>• Dialogue refinement and authenticity</li>
+           <li>• Elimination of redundancy and wordiness</li>
+           <li>• Style and language enhancement</li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+          <ul class="space-y-3 text-gray-700">
+           <li>✓ Manuscripts with solid structure</li>
+           <li>✓ Authors wanting to polish their prose</li>
+           <li>✓ Second or third drafts</li>
+           <li>✓ All genres of creative writing</li>
+           <li>✓ Short stories and essays</li>
+          </ul>
+          <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+           <p><strong>Timeline:</strong> 1–3 weeks depending on manuscript length</p>
+           <p class="mt-2"><strong>Investment:</strong> Starting at $0.006 per word</p>
+          </div>
+         </div>
+        </div>
+        <div class="mt-12 text-center">
+         <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Get Quote for Line Editing</button>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+
+    <!-- Copy Editing Page -->
+    <div id="page-copy" class="page">
+     <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+       <div class="mb-8">
+        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
+       </div>
+       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+        <div class="max-w-4xl mx-auto text-center mb-8">
+         <div class="text-6xl mb-4">🔍</div>
+         <h1 class="text-4xl font-bold mb-4 text-gray-800">Copy Editing</h1>
+         <p class="text-xl text-gray-600 mb-8">Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+         <div>
+          <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+          <ul class="space-y-3 text-gray-700">
+           <li>• Grammar and punctuation corrections</li>
+           <li>• Spelling and typo elimination</li>
+           <li>• Consistency in style and formatting</li>
+           <li>• Fact-checking and continuity review</li>
+           <li>• Style guide adherence (Chicago, AP, MLA)</li>
+           <li>• Citation and reference formatting</li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+          <ul class="space-y-3 text-gray-700">
+           <li>✓ Final drafts ready for publication</li>
+           <li>✓ Manuscripts needing technical polish</li>
+           <li>✓ Self-publishing authors</li>
+           <li>✓ Academic and professional writing</li>
+           <li>✓ Business documents and proposals</li>
+          </ul>
+          <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+           <p><strong>Timeline:</strong> 1–2 weeks depending on manuscript length</p>
+           <p class="mt-2"><strong>Investment:</strong> Starting at $0.004 per word</p>
+          </div>
+         </div>
+        </div>
+        <div class="mt-12 text-center">
+         <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Get Quote for Copy Editing</button>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+
+   </main>
 
    <!-- Footer -->
    <footer class="bg-gray-800 text-white py-8 px-6 mt-auto">
     <div class="max-w-6xl mx-auto text-center">
-     <p id="footer-text" class="text-gray-300">© 2025 Clarity Edit Works. All rights reserved.</p>
+     <p class="text-gray-300">© 2025 Clarity Edit Works. All rights reserved.</p>
     </div>
    </footer>
   </div>
+
+  <script>
+    function navigateToPage(pageType) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(`page-${pageType}`).classList.add('active');
+    }
+  </script>
  </body>
 </html>
+
