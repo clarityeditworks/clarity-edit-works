@@ -1,125 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clarity Edit Works</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    .hero-gradient { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%); }
-    .service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-    .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
-    .cta-button { transition: all 0.3s ease; }
-    .cta-button:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
-    .page { display: none; }
-    .page.active { display: block; }
-    .floating-btn {
-      position: fixed; bottom: 24px; right: 24px; 
-      background-color: #1e3a5f; color: white;
-      padding: 14px 22px; border-radius: 50px; 
-      font-weight: 600; font-size: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
+    :root {
+      --primary-color: #1a237e; /* Deep royal blue */
+      --accent-color: #3949ab;  /* Lighter royal blue */
+      --text-color: #333;
+      --background-color: #f5f7fa;
     }
-    .floating-btn:hover { background-color: #2d5a7b; transform: scale(1.05); }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5em;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6em 2em;
+      background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+      color: white;
+    }
+
+    .hero h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 4em 2em;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+      font-size: 0.9em;
+    }
   </style>
 </head>
+
 <body>
-<div class="min-h-full flex flex-col">
-  <!-- Hero Section -->
-  <header class="hero-gradient text-white py-20 px-6 text-center">
-    <h1 id="main-title" class="text-5xl font-bold mb-4 cursor-pointer" onclick="navigateToPage('home')">Clarity Edit Works</h1>
-    <p id="tagline" class="text-xl opacity-90">Bringing precision and polish to every page you write</p>
+  <header>
+    <h1>Clarity Edit Works</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="develop.html">Clarity Develop & Designs</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="flex-1">
-    <div id="page-home" class="page active">
-      <section class="py-16 px-6 bg-white">
-        <div class="max-w-6xl mx-auto text-center">
-          <h2 class="text-4xl font-bold mb-12 text-gray-800">Editorial Services</h2>
-          <div class="grid md:grid-cols-3 gap-8">
-            <!-- Developmental Editing -->
-            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('developmental')">
-              <div class="text-4xl mb-4">📖</div>
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">Developmental Editing</h3>
-              <p class="text-gray-600 mb-4">Big-picture analysis of structure, pacing, and character development.</p>
-              <div class="text-blue-600 font-semibold">Learn More →</div>
-            </div>
-            <!-- Line Editing -->
-            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('line')">
-              <div class="text-4xl mb-4">✍️</div>
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">Line Editing</h3>
-              <p class="text-gray-600 mb-4">Enhancing flow, rhythm, and language precision sentence by sentence.</p>
-              <div class="text-blue-600 font-semibold">Learn More →</div>
-            </div>
-            <!-- Copy Editing -->
-            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('copy')">
-              <div class="text-4xl mb-4">🔍</div>
-              <h3 class="text-2xl font-bold mb-3 text-gray-800">Copy Editing</h3>
-              <p class="text-gray-600 mb-4">Grammar, punctuation, and consistency perfected for publication-ready polish.</p>
-              <div class="text-blue-600 font-semibold">Learn More →</div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+  <section class="hero">
+    <h2>Bringing writers’ imaginations to life, one word at a time.</h2>
+    <p>Professional editing, proofreading, and copy editing services designed to refine your voice and bring clarity to your story.</p>
+  </section>
 
-    <!-- Developmental Editing -->
-    <div id="page-developmental" class="page">
-      <section class="py-16 px-6 bg-white max-w-6xl mx-auto">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back</button>
-        <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Developmental Editing</h1>
-        <p class="text-gray-700 mb-8 text-lg">Developmental editing focuses on structure, character arcs, and thematic depth. I help refine your story’s foundation so each chapter serves a clear purpose and keeps readers engaged.</p>
-        <div class="bg-gray-50 rounded-lg p-8">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
-          <p class="text-gray-700 italic">Original: “She ran fast because she was scared.”<br> Edited: “Terror pushed her forward, her breath slicing through the cold night air.”</p>
-        </div>
-      </section>
-    </div>
+  <section>
+    <h3>Our Services</h3>
+    <p>At Clarity Edit Works, we specialize in fiction and creative editing that preserves your unique style while enhancing structure, flow, and readability. Our goal is to help your work shine—clearly, confidently, and authentically.</p>
+  </section>
 
-    <!-- Line Editing -->
-    <div id="page-line" class="page">
-      <section class="py-16 px-6 bg-white max-w-6xl mx-auto">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back</button>
-        <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Line Editing</h1>
-        <p class="text-gray-700 mb-8 text-lg">This stage polishes your language. I refine sentence rhythm, eliminate clutter, and strengthen word choice for natural flow and voice.</p>
-        <div class="bg-gray-50 rounded-lg p-8">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
-          <p class="text-gray-700 italic">Original: “He was very tired and decided to go to bed.”<br> Edited: “Exhaustion dragged him toward his bed like a tide pulling him under.”</p>
-        </div>
-      </section>
-    </div>
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p>Send your request for a free sample edit (up to 1,000 words) to: <a href="mailto:clarityeditworks@gmail.com">clarityeditworks@gmail.com</a></p>
+  </section>
 
-    <!-- Copy Editing -->
-    <div id="page-copy" class="page">
-      <section class="py-16 px-6 bg-white max-w-6xl mx-auto">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-8">← Back</button>
-        <h1 class="text-4xl font-bold mb-6 text-gray-800 text-center">Copy Editing</h1>
-        <p class="text-gray-700 mb-8 text-lg">Copy editing ensures your manuscript meets professional publishing standards, correcting grammar, punctuation, and style inconsistencies.</p>
-        <div class="bg-gray-50 rounded-lg p-8">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Example:</h3>
-          <p class="text-gray-700 italic">Original: “Its a beautiful day.”<br> Edited: “It’s a beautiful day.”</p>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="bg-gray-900 text-white text-center py-6 text-sm">
-    © 2025 Clarity Edit Works. All rights reserved.
+  <footer>
+    <p>© 2025 Clarity Edit Works. All rights reserved.</p>
   </footer>
-
-  <a href="samples.html" class="floating-btn">Request Free Sample</a>
-</div>
-
-<script>
-function navigateToPage(pageId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(`page-${pageId}`).classList.add('active');
-  window.scrollTo(0, 0);
-}
-</script>
 </body>
 </html>
