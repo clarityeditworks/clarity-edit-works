@@ -1,82 +1,237 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Editing Samples - Clarity Edit Works</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Free Editing Samples | Clarity Edit Works</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
-    .modal.active { display: flex; }
+    :root{
+      --royal-700:#1e3a5f;
+      --royal-600:#2d5a7b;
+      --accent:#2563eb;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+    }
+    html,body{height:100%;margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{background:var(--bg);color:#111827;display:flex;flex-direction:column;min-height:100vh;}
+    header.site-hero{background:linear-gradient(135deg,var(--royal-700) 0%, var(--royal-600) 100%); color:#fff;padding:48px 20px;text-align:center;}
+    header.site-hero h1{font-size:2rem;margin:0 0 8px;}
+    header.site-hero p{margin:0;font-size:1.05rem;opacity:0.95;}
+    nav.top-nav{display:flex;justify-content:center;gap:16px;margin-top:12px;}
+    nav.top-nav a{color:white;text-decoration:none;padding:8px 12px;border-radius:6px;font-weight:600;border:1px solid transparent;}
+    nav.top-nav a:hover{background:rgba(255,255,255,0.06);}
+
+    main.container{max-width:980px;margin:40px auto;padding:0 20px;flex:1;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .card{background:white;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(16,24,40,0.06);}
+    .card h3{margin:0 0 8px;color:var(--royal-700);}
+    .card p{margin:0;color:var(--muted);line-height:1.5;}
+
+    .cta-area{text-align:center;margin-top:28px;}
+    .btn-primary{
+      background:var(--royal-700);
+      color:white;
+      padding:12px 24px;
+      border-radius:10px;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(30,58,95,0.14);
+      transition:transform .14s ease,background .14s ease;
+    }
+    .btn-primary:hover{transform:translateY(-3px);background:var(--royal-600);}
+
+    /* Modal */
+    .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;z-index:60;padding:24px;}
+    .modal-backdrop.active{display:flex;}
+    .modal-panel{background:#fff;border-radius:12px;max-width:680px;width:100%;padding:22px;box-shadow:0 24px 60px rgba(2,6,23,0.3);position:relative;}
+    .modal-close{position:absolute;right:12px;top:10px;background:transparent;border:0;font-size:26px;cursor:pointer;color:#374151;}
+    .form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+    .form-row label{font-weight:600;color:#111827;font-size:0.95rem;}
+    .form-row input[type="text"], .form-row input[type="email"], .form-row input[type="number"], .form-row textarea, .form-row select{
+      width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;font-size:0.98rem;
+    }
+    .submit-note{text-align:center;margin-top:12px;color:#6b7280;font-size:0.93rem;}
+
+    footer.site-foot{background:#111827;color:#e6e6e9;padding:18px 20px;text-align:center;font-size:0.9rem;}
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr;gap:14px;}
+    }
   </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800">
-  <header class="bg-blue-900 text-white py-8 text-center">
-    <h1 class="text-4xl font-bold mb-2">Free Editing Samples</h1>
-    <p class="text-lg opacity-90">Experience the quality of Clarity Edit Works before committing</p>
+<body>
+
+  <!-- Header / Hero -->
+  <header class="site-hero">
+    <h1>Request a Free Sample Edit</h1>
+    <p>Experience the clarity and confidence Clarity Edit Works brings to your manuscript.</p>
+
+    <nav class="top-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="samples.html" style="background:rgba(255,255,255,0.12);">Free Samples</a>
+      <a href="mailto:clarityeditworks@gmail.com">Contact</a>
+    </nav>
   </header>
 
-  <main class="max-w-4xl mx-auto py-16 px-6 text-center">
-    <section>
-      <h2 class="text-3xl font-bold mb-6">Sample Edit Pricing</h2>
-      <p class="text-gray-700 mb-10">These sample edits give you a glimpse of your manuscript’s potential. Prices are based on average editorial rates.</p>
-
-      <div class="grid md:grid-cols-3 gap-8 mb-12">
-        <div class="bg-white rounded-lg p-8 shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Developmental Sample</h3>
-          <p class="text-gray-600 mb-2">Detailed notes on 1,000 words</p>
-          <p class="text-blue-700 font-semibold mb-4">$15 flat</p>
-        </div>
-        <div class="bg-white rounded-lg p-8 shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Line Editing Sample</h3>
-          <p class="text-gray-600 mb-2">Polish and rhythm enhancement for 1,000 words</p>
-          <p class="text-blue-700 font-semibold mb-4">$20 flat</p>
-        </div>
-        <div class="bg-white rounded-lg p-8 shadow-md">
-          <h3 class="text-2xl font-bold mb-4">Copy Editing Sample</h3>
-          <p class="text-gray-600 mb-2">Proof and refine 1,000 words</p>
-          <p class="text-blue-700 font-semibold mb-4">$12 flat</p>
-        </div>
-      </div>
-
-      <button onclick="toggleModal(true)" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-4 px-8 rounded-lg transition">Request Your Free Sample</button>
+  <!-- Main -->
+  <main class="container" role="main">
+    <section style="text-align:center;margin-bottom:28px;">
+      <h2 style="font-size:1.5rem;margin-bottom:8px;color:var(--royal-700);">What we include in a free sample</h2>
+      <p style="color:var(--muted);max-width:760px;margin:0 auto;">
+        Request a complimentary sample edit (up to 1,000 words) so you can see our approach — whether you choose Developmental, Line, or Copy editing.
+        We provide clear, actionable feedback while preserving your voice. Submit the request form and we’ll email your sample back with notes.
+      </p>
     </section>
+
+    <!-- Cards: sample types -->
+    <section class="grid-3" aria-labelledby="sample-types">
+      <article class="card" id="developmental-sample" aria-describedby="dev-desc">
+        <h3>Developmental Sample</h3>
+        <p id="dev-desc">
+          Focused on big-picture story elements: structure, pacing, character arcs, and thematic clarity. The sample includes an editorial letter with prioritized recommendations.
+        </p>
+      </article>
+
+      <article class="card" id="line-sample" aria-describedby="line-desc">
+        <h3>Line Editing Sample</h3>
+        <p id="line-desc">
+          Sentence-level polish: rhythm, clarity, and word choice. Ideal for tightening prose while maintaining voice and emotional cadence.
+        </p>
+      </article>
+
+      <article class="card" id="copy-sample" aria-describedby="copy-desc">
+        <h3>Copy Editing Sample</h3>
+        <p id="copy-desc">
+          Technical accuracy: grammar, punctuation, consistency, and formatting. Perfect for manuscripts preparing for submission or publication.
+        </p>
+      </article>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-area">
+      <button class="btn-primary" type="button" onclick="openModal()">Request Your Free Sample</button>
+    </div>
+
+    <!-- Pricing / Details (kept general per your request) -->
+    <section style="margin-top:36px;">
+      <div class="card" style="text-align:left;">
+        <h3 style="margin-top:0;color:var(--royal-700);">How the free sample works</h3>
+        <ol style="color:var(--muted);line-height:1.6;margin:12px 0 0;padding-left:20px;">
+          <li>Choose the type of editing you want (Developmental, Line, or Copy).</li>
+          <li>Attach or paste up to 1,000 words in the request form — include context and specific concerns if any.</li>
+          <li>We review and return a sample with comments and a short editorial summary via email.</li>
+        </ol>
+
+        <p style="margin-top:12px;color:var(--muted);">
+          If you prefer, you can also email your request directly to <strong>clarityeditworks@gmail.com</strong>.
+        </p>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-8 text-left relative">
-      <button onclick="toggleModal(false)" class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
-      <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Request a Free Editing Sample</h2>
+  <!-- Modal (hidden by default) -->
+  <div id="modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Close" onclick="closeModal()">✕</button>
 
-      <form action="mailto:clarityeditworks@gmail.com" method="post" enctype="text/plain" class="space-y-4">
-        <input type="text" name="Name" placeholder="Your Name" required class="w-full border border-gray-300 rounded-lg p-3">
-        <input type="email" name="Email" placeholder="Your Email" required class="w-full border border-gray-300 rounded-lg p-3">
-        <input type="text" name="Document Type" placeholder="Document Type (e.g., Novel, Essay)" required class="w-full border border-gray-300 rounded-lg p-3">
-        <input type="number" name="Word Count" placeholder="Word Count" required class="w-full border border-gray-300 rounded-lg p-3">
-        <select name="Editing Type" required class="w-full border border-gray-300 rounded-lg p-3">
-          <option value="">Select Editing Type</option>
-          <option value="Developmental">Developmental Editing</option>
-          <option value="Line">Line Editing</option>
-          <option value="Copy">Copy Editing</option>
-        </select>
-        <textarea name="Message" rows="4" placeholder="Describe what you'd like reviewed..." class="w-full border border-gray-300 rounded-lg p-3"></textarea>
+      <h2 id="modal-title" style="text-align:center;margin:0 0 14px;font-size:1.25rem;color:var(--royal-700);">Free Sample Request</h2>
 
-        <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-6 rounded-lg w-full transition">Submit Request</button>
+      <!-- NOTE: mailto forms open the user's email client. enctype="text/plain" better formats the body. -->
+      <form id="sampleForm" action="mailto:clarityeditworks@gmail.com" method="post" enctype="text/plain" onsubmit="onSubmitForm(event)">
+        <div class="form-row">
+          <label for="name">Full name</label>
+          <input id="name" name="Name" type="text" required placeholder="Your full name">
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email address</label>
+          <input id="email" name="Email" type="email" required placeholder="you@example.com">
+        </div>
+
+        <div class="form-row">
+          <label for="docType">Document type</label>
+          <select id="docType" name="Document Type" required>
+            <option value="">Select document type</option>
+            <option value="Novel">Novel</option>
+            <option value="Memoir">Memoir</option>
+            <option value="Short Story">Short story</option>
+            <option value="Essay">Essay</option>
+            <option value="Academic">Academic paper</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="wordCount">Word count (approx.)</label>
+          <input id="wordCount" name="Word Count" type="number" min="1" placeholder="e.g., 7500">
+        </div>
+
+        <div class="form-row">
+          <label for="editType">Type of editing requested</label>
+          <select id="editType" name="Editing Type" required>
+            <option value="">Select editing type</option>
+            <option value="Developmental">Developmental Editing (big-picture)</option>
+            <option value="Line">Line Editing (prose and rhythm)</option>
+            <option value="Copy">Copy Editing (grammar & consistency)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="sampleText">Paste up to 1,000 words (or describe what you want reviewed)</label>
+          <textarea id="sampleText" name="Sample Text" rows="6" placeholder="Paste text or type details here..."></textarea>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <button type="submit" class="btn-primary" style="padding:10px 18px;border-radius:8px;">Send Request</button>
+          <button type="button" onclick="closeModal()" style="background:#eef2ff;border:1px solid #e6eefc;padding:10px 14px;border-radius:8px;color:var(--royal-700);font-weight:600;cursor:pointer;">Cancel</button>
+        </div>
+
+        <p class="submit-note" style="margin-top:12px;color:var(--muted);text-align:center;">
+          Your sample will be reviewed within 1–3 business days. You’ll receive feedback directly at the email provided.
+        </p>
       </form>
-
-      <p class="text-gray-600 text-sm mt-6 text-center">You’ll receive your sample within 1–3 business days via the email provided.</p>
     </div>
   </div>
 
-  <footer class="bg-gray-900 text-white text-center py-6 text-sm">
+  <!-- Footer -->
+  <footer class="site-foot">
     © 2025 Clarity Edit Works. All rights reserved.
   </footer>
 
   <script>
-    function toggleModal(show) {
-      document.getElementById('modal').classList.toggle('active', show);
+    function openModal(){
+      const m = document.getElementById('modal');
+      m.classList.add('active');
+      m.setAttribute('aria-hidden','false');
+      // focus first field for accessibility:
+      setTimeout(()=>document.getElementById('name').focus(),120);
     }
+    function closeModal(){
+      const m = document.getElementById('modal');
+      m.classList.remove('active');
+      m.setAttribute('aria-hidden','true');
+    }
+
+    // Using mailto via form: format is handled by the browser mail client.
+    // We add a small handler to prevent navigation for users without a mail client.
+    function onSubmitForm(e){
+      // Let the browser open the mail client if possible. But also show a quick confirmation overlay.
+      // We won't block the default — most browsers will open the user's email app with a prefilled message.
+      setTimeout(()=>{ 
+        alert('If your email client did not open, please send your sample to clarityeditworks@gmail.com with your details.');
+      }, 400);
+      // allow default behaviour to proceed
+    }
+
+    // Accessibility: close modal with Escape
+    document.addEventListener('keydown', function(evt){
+      if(evt.key === 'Escape'){
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
