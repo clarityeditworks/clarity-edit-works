@@ -1,138 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Sample Request | Clarity Edit Works</title>
-  <style>
-    :root {
-      --primary-color: #1a3cff;
-      --accent-color: #5378ff;
-      --text-color: #222;
-      --background-color: #f9f9ff;
-      --button-color: #1a3cff;
-      --button-hover: #0f2ccc;
-    }
+  <script src="https://cdn.tailwindcss.com"></script>
 
+  <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Poppins', sans-serif;
     }
 
-    header {
-      background-color: var(--primary-color);
+    /* Floating Button */
+    .floating-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #2563eb;
       color: white;
-      text-align: center;
-      padding: 1.5em 1em;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-
-    main {
-      max-width: 600px;
-      margin: 3em auto;
-      background: white;
-      padding: 2em;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      color: var(--primary-color);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2em;
-    }
-
-    label {
-      font-weight: 600;
-    }
-
-    input, select, textarea {
-      padding: 0.8em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
-      font-size: 1em;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    button {
-      background-color: var(--button-color);
-      color: white;
-      border: none;
-      padding: 1em;
-      border-radius: 5px;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 50px;
       cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
     }
 
-    button:hover {
-      background-color: var(--button-hover);
+    .floating-button:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
     }
 
-    footer {
-      text-align: center;
-      padding: 1.5em;
-      background-color: var(--primary-color);
+    /* Overlay Form */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+
+    .form-container input,
+    .form-container select,
+    .form-container textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .form-container button {
+      background: #2563eb;
       color: white;
-      font-size: 0.9em;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .form-container button:hover {
+      background: #1d4ed8;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .confirmation {
+      color: green;
+      font-weight: bold;
+      display: none;
+      margin-top: 10px;
     }
   </style>
 </head>
-<body>
 
-  <header>
-    <h1>Clarity Edit Works</h1>
-    <p>Free Sample Request</p>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- HEADER -->
+  <header class="bg-blue-900 text-white py-12 text-center">
+    <h1 class="text-4xl font-bold mb-2">Request Your Free Sample</h1>
+    <p class="text-lg opacity-90">
+      Tell us about your project and receive a sample edit to see how we can help refine your story.
+    </p>
   </header>
 
-  <main>
-    <h2>Request Your Free Sample</h2>
-    <p>Fill out the form below to receive your free edit (up to 1,000 words) or a one-page website sample.</p>
+  <!-- MAIN FORM -->
+  <main class="max-w-3xl mx-auto py-12 px-6">
+    <form id="sampleForm" class="bg-white rounded-lg shadow-lg p-8">
+      <label for="name" class="block text-sm font-semibold mb-2 text-gray-700">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required />
+      <label for="email" class="block text-sm font-semibold mb-2 text-gray-700">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="_replyto" required />
-
-      <label for="service">Select a Service</label>
+      <label for="service" class="block text-sm font-semibold mb-2 text-gray-700">Service</label>
       <select id="service" name="service" required>
-        <option value="">-- Choose One --</option>
-        <option value="Editing">Editing (up to 1,000 words)</option>
-        <option value="Proofreading">Proofreading</option>
-        <option value="Copyediting">Copyediting</option>
+        <option value="">Select a Service</option>
         <option value="Developmental Editing">Developmental Editing</option>
-        <option value="Web Design">Web Design (1-page sample)</option>
+        <option value="Line Editing">Line Editing</option>
+        <option value="Copy Editing">Copy Editing</option>
       </select>
 
-      <label for="details">Describe Your Request</label>
-      <textarea id="details" name="details" placeholder="Tell us about your project..."></textarea>
+      <label for="description" class="block text-sm font-semibold mb-2 text-gray-700">Project Details</label>
+      <textarea id="description" name="description" rows="5" placeholder="Describe your request..." required></textarea>
 
-      <button type="submit">Submit Request</button>
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg mt-2">
+        Submit Request
+      </button>
+
+      <p class="confirmation" id="confirmationMsg">Your request has been sent!</p>
     </form>
   </main>
 
-  <footer>
-    &copy; 2025 Clarity Edit Works. All rights reserved.
+  <!-- Floating Button -->
+  <div class="floating-button" onclick="openOverlay()">Request Your Free Sample</div>
+
+  <!-- Overlay Popup -->
+  <div id="overlay" class="overlay">
+    <div class="form-container">
+      <span class="close-btn" onclick="closeOverlay()">×</span>
+      <h2 class="text-xl font-bold mb-4">Request Your Free Sample</h2>
+      <form id="overlayForm">
+        <input type="text" id="o-name" name="name" placeholder="Your Name" required>
+        <input type="email" id="o-email" name="email" placeholder="Your Email" required>
+        <select id="o-service" name="service" required>
+          <option value="">Select a Service</option>
+          <option value="Developmental Editing">Developmental Editing</option>
+          <option value="Line Editing">Line Editing</option>
+          <option value="Copy Editing">Copy Editing</option>
+        </select>
+        <textarea id="o-description" name="description" rows="4" placeholder="Describe your request..." required></textarea>
+        <button type="submit">Submit Request</button>
+        <p class="confirmation" id="o-confirmationMsg">Your request has been sent!</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-8 text-center mt-12">
+    <p>&copy; 2025 Clarity Edit Works. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Floating form open/close
+    function openOverlay() {
+      document.getElementById('overlay').classList.add('active');
+    }
+
+    function closeOverlay() {
+      document.getElementById('overlay').classList.remove('active');
+    }
+
+    // Confirmation message for main form
+    document.getElementById('sampleForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('confirmationMsg').style.display = 'block';
+      this.reset();
+    });
+
+    // Confirmation message for overlay form
+    document.getElementById('overlayForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('o-confirmationMsg').style.display = 'block';
+      setTimeout(closeOverlay, 1500);
+      this.reset();
+    });
+  </script>
 </body>
 </html>
