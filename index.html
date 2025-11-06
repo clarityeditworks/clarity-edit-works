@@ -1,16 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clarity Edit Works</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Clarity Edit Works | Editing Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    body { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+    }
 
-    .hero-gradient {
-      background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%);
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem;
     }
 
     .service-card {
@@ -22,257 +28,153 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
-    .cta-button {
+    /* Floating Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 0.9rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
       transition: all 0.3s ease;
+      z-index: 1000;
     }
 
-    .cta-button:hover {
+    .floating-btn:hover {
+      background-color: #2563eb;
       transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
-    .page { display: none; }
-    .page.active { display: block; }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      text-align: left;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
   </style>
- </head>
+</head>
+<body>
 
- <body>
-  <div class="min-h-full flex flex-col">
+  <!-- Hero -->
+  <header class="hero">
+    <h1 class="text-5xl font-bold mb-4">Clarity Edit Works</h1>
+    <p class="text-xl font-light">Bringing writers’ imaginations to life, one word at a time.</p>
+  </header>
 
-   <!-- Hero Section -->
-   <header class="hero-gradient text-white py-20 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-     <h1 class="text-5xl font-bold mb-4 cursor-pointer" onclick="navigateToPage('home')">Clarity Edit Works</h1>
-     <p class="text-xl opacity-90">Bringing writers’ imaginations to life, one word at a time.</p>
-    </div>
-   </header>
-
-   <!-- Main Content Area -->
-   <main class="flex-1">
-
-    <!-- Home Page -->
-    <div id="page-home" class="page active">
-
-     <!-- Services Overview Section -->
-     <section class="py-16 px-6 bg-white">
-      <div class="max-w-6xl mx-auto">
-       <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Services</h2>
-
-       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('developmental')">
-         <div class="text-4xl mb-4">📖</div>
-         <h3 class="text-2xl font-bold mb-3 text-gray-800">Developmental Editing</h3>
-         <p class="text-gray-600 mb-4">Comprehensive feedback on plot, structure, and character development to strengthen your manuscript's foundation.</p>
-         <div class="text-blue-600 font-semibold">Learn More →</div>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('line')">
-         <div class="text-4xl mb-4">✍️</div>
-         <h3 class="text-2xl font-bold mb-3 text-gray-800">Line Editing</h3>
-         <p class="text-gray-600 mb-4">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
-         <div class="text-blue-600 font-semibold">Learn More →</div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md cursor-pointer" onclick="navigateToPage('copy')">
-         <div class="text-4xl mb-4">🔍</div>
-         <h3 class="text-2xl font-bold mb-3 text-gray-800">Copy Editing</h3>
-         <p class="text-gray-600 mb-4">Meticulous attention to grammar, punctuation, and formatting to polish your manuscript.</p>
-         <div class="text-blue-600 font-semibold">Learn More →</div>
-        </div>
-       </div>
-      </div>
-     </section>
-
-     <!-- About Section -->
-     <section class="py-16 px-6 bg-gray-100">
-      <div class="max-w-4xl mx-auto text-center">
-       <h2 class="text-4xl font-bold mb-6 text-gray-800">About My Approach</h2>
-       <p class="text-lg text-gray-700 leading-relaxed">
-        I work closely with authors to understand their vision and help them achieve it. Whether you're writing your first novel or your tenth, I provide thoughtful, constructive feedback that respects your creative voice while elevating your work to its full potential.
-       </p>
-      </div>
-     </section>
-
-     <!-- CTA Section -->
-     <section class="py-16 px-6 bg-white">
-      <div class="max-w-3xl mx-auto text-center">
-       <h2 class="text-3xl font-bold mb-6 text-gray-800">Ready to Perfect Your Manuscript?</h2>
-
-       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <button class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">
-         Get Started Today
-        </button>
-
-        <!-- NEW BUTTON -->
-        <a href="sample.html" class="cta-button bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-8 rounded-lg text-lg">
-         Request a Sample Edit
-        </a>
-       </div>
-      </div>
-     </section>
-    </div>
-
-    <!-- Developmental Editing Page -->
-    <div id="page-developmental" class="page">
-     <section class="py-16 px-6 bg-white">
-      <div class="max-w-6xl mx-auto">
-       <div class="mb-8">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
-       </div>
-       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
-        <div class="max-w-4xl mx-auto text-center mb-8">
-         <div class="text-6xl mb-4">📖</div>
-         <h1 class="text-4xl font-bold mb-4 text-gray-800">Developmental Editing</h1>
-         <p class="text-xl text-gray-600 mb-8">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript’s foundation.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8">
-         <div>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
-          <ul class="space-y-3 text-gray-700">
-           <li>• Plot structure analysis and recommendations</li>
-           <li>• Character development assessment</li>
-           <li>• Pacing and tension evaluation</li>
-           <li>• Theme and narrative arc guidance</li>
-           <li>• Detailed editorial letter with actionable feedback</li>
-           <li>• Chapter-by-chapter notes and suggestions</li>
-          </ul>
-         </div>
-         <div>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
-          <ul class="space-y-3 text-gray-700">
-           <li>✓ First drafts needing structural work</li>
-           <li>✓ Manuscripts with plot or character issues</li>
-           <li>✓ Authors seeking big-picture feedback</li>
-           <li>✓ Novels, novellas, and long-form fiction</li>
-           <li>✓ Memoirs and creative nonfiction</li>
-          </ul>
-          <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-           <p><strong>Timeline:</strong> 2–4 weeks depending on manuscript length</p>
-           <p class="mt-2"><strong>Investment:</strong> Starting at $0.008 per word</p>
-          </div>
-         </div>
-        </div>
-        <div class="mt-12 text-center">
-         <a href="sample.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Request a Sample Edit</a>
-        </div>
-       </div>
-      </div>
-     </section>
-    </div>
-
-    <!-- Line Editing Page -->
-    <div id="page-line" class="page">
-     <section class="py-16 px-6 bg-white">
-      <div class="max-w-6xl mx-auto">
-       <div class="mb-8">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
-       </div>
-       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
-        <div class="max-w-4xl mx-auto text-center mb-8">
-         <div class="text-6xl mb-4">✍️</div>
-         <h1 class="text-4xl font-bold mb-4 text-gray-800">Line Editing</h1>
-         <p class="text-xl text-gray-600 mb-8">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8">
-         <div>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
-          <ul class="space-y-3 text-gray-700">
-           <li>• Sentence-level improvements for clarity</li>
-           <li>• Flow and rhythm enhancement</li>
-           <li>• Voice and tone consistency</li>
-           <li>• Dialogue refinement and authenticity</li>
-           <li>• Elimination of redundancy and wordiness</li>
-           <li>• Style and language enhancement</li>
-          </ul>
-         </div>
-         <div>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
-          <ul class="space-y-3 text-gray-700">
-           <li>✓ Manuscripts with solid structure</li>
-           <li>✓ Authors wanting to polish their prose</li>
-           <li>✓ Second or third drafts</li>
-           <li>✓ All genres of creative writing</li>
-           <li>✓ Short stories and essays</li>
-          </ul>
-          <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-           <p><strong>Timeline:</strong> 1–3 weeks depending on manuscript length</p>
-           <p class="mt-2"><strong>Investment:</strong> Starting at $0.006 per word</p>
-          </div>
-         </div>
-        </div>
-        <div class="mt-12 text-center">
-         <a href="sample.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Request a Sample Edit</a>
-        </div>
-       </div>
-      </div>
-     </section>
-    </div>
-
-    <!-- Copy Editing Page -->
-    <div id="page-copy" class="page">
-     <section class="py-16 px-6 bg-white">
-      <div class="max-w-6xl mx-auto">
-       <div class="mb-8">
-        <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold">← Back to Services</button>
-       </div>
-       <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
-        <div class="max-w-4xl mx-auto text-center mb-8">
-         <div class="text-6xl mb-4">🔍</div>
-         <h1 class="text-4xl font-bold mb-4 text-gray-800">Copy Editing</h1>
-         <p class="text-xl text-gray-600 mb-8">Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8">
-         <div>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
-          <ul class="space-y-3 text-gray-700">
-           <li>• Grammar and punctuation corrections</li>
-           <li>• Spelling and typo elimination</li>
-           <li>• Consistency in style and formatting</li>
-           <li>• Fact-checking and continuity review</li>
-           <li>• Style guide adherence (Chicago, AP, MLA)</li>
-           <li>• Citation and reference formatting</li>
-          </ul>
-         </div>
-         <div>
-          <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
-          <ul class="space-y-3 text-gray-700">
-           <li>✓ Final drafts ready for publication</li>
-           <li>✓ Manuscripts needing technical polish</li>
-           <li>✓ Self-publishing authors</li>
-           <li>✓ Academic and professional writing</li>
-           <li>✓ Business documents and proposals</li>
-          </ul>
-          <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-           <p><strong>Timeline:</strong> 1–2 weeks depending on manuscript length</p>
-           <p class="mt-2"><strong>Investment:</strong> Starting at $0.004 per word</p>
-          </div>
-         </div>
-        </div>
-        <div class="mt-12 text-center">
-         <a href="sample.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Request a Sample Edit</a>
-        </div>
-       </div>
-      </div>
-     </section>
-    </div>
-   </main>
-
-   <!-- Footer -->
-   <footer class="bg-gray-800 text-white py-8 px-6 mt-auto">
+  <!-- Services -->
+  <section class="py-16 px-6">
     <div class="max-w-6xl mx-auto text-center">
-     <p class="text-gray-300">© 2025 Clarity Edit Works. All rights reserved.</p>
+      <h2 class="text-4xl font-bold mb-12 text-gray-800">Our Editing Services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="service-card bg-white rounded-lg p-8 shadow-md">
+          <div class="text-4xl mb-4">📚</div>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-800">Developmental Editing</h3>
+          <p class="text-gray-600">Comprehensive guidance on structure, pacing, and character arcs to strengthen your story’s foundation.</p>
+        </div>
+
+        <div class="service-card bg-white rounded-lg p-8 shadow-md">
+          <div class="text-4xl mb-4">🖋️</div>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-800">Line Editing</h3>
+          <p class="text-gray-600">Sentence-by-sentence refinement to enhance tone, rhythm, and readability while keeping your voice intact.</p>
+        </div>
+
+        <div class="service-card bg-white rounded-lg p-8 shadow-md">
+          <div class="text-4xl mb-4">🔍</div>
+          <h3 class="text-2xl font-semibold mb-3 text-gray-800">Copyediting & Proofreading</h3>
+          <p class="text-gray-600">Polishing grammar, punctuation, and formatting to ensure your manuscript reads clean and professional.</p>
+        </div>
+
+      </div>
     </div>
-   </footer>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>© 2025 Clarity Edit Works. All rights reserved.</p>
+  </footer>
+
+  <!-- Floating Button -->
+  <div class="floating-btn" onclick="openModal()">Free Sample Request</div>
+
+  <!-- Modal Form -->
+  <div class="modal" id="sampleModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">Request a Free Sample Edit</h2>
+      <form action="https://formspree.io/f/mzzzkavq" method="POST">
+        <label class="block mb-2 font-semibold text-gray-700">Name</label>
+        <input type="text" name="name" required class="w-full p-2 mb-4 border rounded">
+
+        <label class="block mb-2 font-semibold text-gray-700">Email</label>
+        <input type="email" name="email" required class="w-full p-2 mb-4 border rounded">
+
+        <label class="block mb-2 font-semibold text-gray-700">Select Service</label>
+        <select name="service" required class="w-full p-2 mb-4 border rounded">
+          <option value="">-- Choose a Service --</option>
+          <option>Developmental Editing</option>
+          <option>Line Editing</option>
+          <option>Copyediting</option>
+          <option>Proofreading</option>
+          <option>Website Copy Review</option>
+          <option>Other (please describe below)</option>
+        </select>
+
+        <label class="block mb-2 font-semibold text-gray-700">Request Details</label>
+        <textarea name="details" rows="4" required class="w-full p-2 mb-4 border rounded" placeholder="Describe your project or sample request..."></textarea>
+
+        <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">Submit Request</button>
+      </form>
+    </div>
   </div>
 
   <script>
-   function navigateToPage(pageType) {
-     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-     document.getElementById(`page-${pageType}`).classList.add('active');
-   }
+    function openModal() {
+      document.getElementById('sampleModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('sampleModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('sampleModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
   </script>
- </body>
+
+</body>
 </html>
