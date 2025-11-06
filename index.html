@@ -107,4 +107,135 @@
               </div>
               <div>
                 <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
-                <ul class="space-y
+                                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Authors beginning a new project or needing big-picture feedback</li>
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Writers revising their manuscript before submission or self-publishing</li>
+                </ul>
+                <button class="mt-8 bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Line Editing Page -->
+    <div id="page-line" class="page">
+      <section class="py-16 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-6">← Back to Services</button>
+          <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+            <div class="text-center mb-8">
+              <div class="text-6xl mb-4">✍️</div>
+              <h1 class="text-4xl font-bold mb-4 text-gray-800">Line Editing</h1>
+              <p class="text-xl text-gray-600 mb-8">Fine-tuning your sentences for rhythm, clarity, and tone without losing your voice.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+                <ul class="space-y-3 text-gray-700">
+                  <li>Sentence-level editing for flow and word choice</li>
+                  <li>Elimination of redundancy and awkward phrasing</li>
+                  <li>Suggestions for tightening and improving readability</li>
+                  <li>Preservation of your voice while enhancing impact</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+                <ul class="space-y-3 text-gray-700">
+                  <li>Authors polishing their prose for publication</li>
+                  <li>Writers seeking smoother and more engaging narrative flow</li>
+                </ul>
+                <button class="mt-8 bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Copy Editing Page -->
+    <div id="page-copy" class="page">
+      <section class="py-16 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-6">← Back to Services</button>
+          <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+            <div class="text-center mb-8">
+              <div class="text-6xl mb-4">🔍</div>
+              <h1 class="text-4xl font-bold mb-4 text-gray-800">Copy Editing</h1>
+              <p class="text-xl text-gray-600 mb-8">A detailed grammar and consistency review to prepare your manuscript for publication.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+                <ul class="space-y-3 text-gray-700">
+                  <li>Grammar, punctuation, and syntax correction</li>
+                  <li>Consistency in tone, tense, and style</li>
+                  <li>Adherence to publishing standards</li>
+                  <li>Final polish before proofreading</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+                <ul class="space-y-3 text-gray-700">
+                  <li>Authors preparing a manuscript for submission or print</li>
+                  <li>Writers needing a clean, professional finish</li>
+                </ul>
+                <button class="mt-8 bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700">Get Quote</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Floating Sample Request Button -->
+  <div class="floating-button" onclick="openOverlay()">Request Your Free Sample</div>
+
+  <!-- Overlay Form -->
+  <div id="overlay" class="overlay">
+    <div class="form-container">
+      <span class="close-btn" onclick="closeOverlay()">×</span>
+      <h2>Request Your Free Sample</h2>
+      <form id="sampleForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <select id="service" required>
+          <option value="">Select a Service</option>
+          <option value="Developmental Editing">Developmental Editing</option>
+          <option value="Line Editing">Line Editing</option>
+          <option value="Copy Editing">Copy Editing</option>
+        </select>
+        <textarea id="description" rows="4" placeholder="Describe your request..." required></textarea>
+        <button type="submit">Submit Request</button>
+        <p class="confirmation" id="confirmationMsg">Your request has been sent!</p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-white py-8 text-center">
+    <p>&copy; 2025 Clarity Edit Works. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+function navigateToPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  window.scrollTo(0, 0);
+}
+function openOverlay() {
+  document.getElementById('overlay').classList.add('active');
+}
+function closeOverlay() {
+  document.getElementById('overlay').classList.remove('active');
+}
+document.getElementById('sampleForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('confirmationMsg').style.display = 'block';
+  setTimeout(closeOverlay, 1500);
+});
+</script>
+</body>
+</html>
