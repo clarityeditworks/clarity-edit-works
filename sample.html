@@ -1,109 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Request a Free Sample — Clarity Edit Works</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Sample Request | Clarity Edit Works</title>
   <style>
-    body{ font-family:'Poppins',sans-serif; background:#f8fafc; margin:0; }
-    .hero{ background:linear-gradient(135deg,#0f172a,#1e3a8a); color:#fff; padding:4rem 1rem; text-align:center; }
-    .floating-btn{ position:fixed; right:24px; bottom:24px; z-index:1000; background:#1e3a8a; color:#fff; padding:.8rem 1.2rem; border-radius:999px; }
-    .modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); align-items:center; justify-content:center; z-index:2000; }
-    .modal-inner{ background:#fff; border-radius:10px; padding:1.25rem 1.5rem; max-width:520px; width:92%; }
-    .close-x{ float:right; cursor:pointer; color:#444; font-weight:700; }
+    :root {
+      --primary-color: #1a3cff;
+      --accent-color: #5378ff;
+      --text-color: #222;
+      --background-color: #f9f9ff;
+      --button-color: #1a3cff;
+      --button-hover: #0f2ccc;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5em 1em;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 3em auto;
+      background: white;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      padding: 0.8em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: var(--button-color);
+      color: white;
+      border: none;
+      padding: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--button-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5em;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
 
-  <header class="bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div>
-        <h1 class="text-2xl font-bold">Clarity Edit Works</h1>
-        <div class="text-sm text-gray-500">Bringing writers’ imaginations to life, one word at a time.</div>
-      </div>
-      <nav class="space-x-6 hidden sm:block">
-        <a href="index.html" class="text-gray-700 hover:text-blue-700">Home</a>
-        <a href="developmental.html" class="text-gray-700 hover:text-blue-700">Developmental</a>
-        <a href="line.html" class="text-gray-700 hover:text-blue-700">Line</a>
-        <a href="copy.html" class="text-gray-700 hover:text-blue-700">Copy</a>
-        <a href="proof.html" class="text-gray-700 hover:text-blue-700">Proof</a>
-        <a href="sample.html" class="text-blue-700 font-semibold">Sample</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Clarity Edit Works</h1>
+    <p>Free Sample Request</p>
   </header>
 
-  <section class="hero">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold mb-3">Request a Free Sample Edit</h2>
-      <p class="text-blue-100 max-w-2xl mx-auto">Submit up to 1,000 words (or request a one-page website sample). We'll respond within 48 hours.</p>
-    </div>
-  </section>
+  <main>
+    <h2>Request Your Free Sample</h2>
+    <p>Fill out the form below to receive your free edit (up to 1,000 words) or a one-page website sample.</p>
 
-  <main class="py-12">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="bg-white rounded-lg p-8 shadow">
-        <h3 class="text-xl font-semibold mb-3">Send your sample</h3>
-        <form action="https://formspree.io/f/mzzzkavq" method="POST" enctype="multipart/form-data">
-          <label class="block text-sm font-medium text-gray-700">Name</label>
-          <input name="name" required class="w-full p-2 border rounded mb-3" />
-          <label class="block text-sm font-medium text-gray-700">Email</label>
-          <input type="email" name="email" required class="w-full p-2 border rounded mb-3" />
-          <label class="block text-sm font-medium text-gray-700">Service</label>
-          <select name="service" required class="w-full p-2 border rounded mb-3">
-            <option>Developmental Editing</option>
-            <option>Line Editing</option>
-            <option>Copyediting</option>
-            <option>Proofreading</option>
-            <option>Website Copy Review</option>
-            <option>Other</option>
-          </select>
-          <label class="block text-sm font-medium text-gray-700">Details</label>
-          <textarea name="details" rows="5" required class="w-full p-2 border rounded mb-3"></textarea>
-          <label class="block text-sm font-medium text-gray-700">Attachment (optional — up to 3 files)</label>
-          <input type="file" name="attachment" class="w-full mb-3" />
-          <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded font-semibold">Submit Request</button>
-        </form>
-      </div>
-    </div>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="_replyto" required />
+
+      <label for="service">Select a Service</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choose One --</option>
+        <option value="Editing">Editing (up to 1,000 words)</option>
+        <option value="Proofreading">Proofreading</option>
+        <option value="Copyediting">Copyediting</option>
+        <option value="Developmental Editing">Developmental Editing</option>
+        <option value="Web Design">Web Design (1-page sample)</option>
+      </select>
+
+      <label for="details">Describe Your Request</label>
+      <textarea id="details" name="details" placeholder="Tell us about your project..."></textarea>
+
+      <button type="submit">Submit Request</button>
+    </form>
   </main>
 
-  <footer class="bg-gray-900 text-white py-6 text-center">
-    <div class="max-w-6xl mx-auto">© 2025 Clarity Edit Works. All rights reserved.</div>
+  <footer>
+    &copy; 2025 Clarity Edit Works. All rights reserved.
   </footer>
 
-  <button class="floating-btn" onclick="openModal()">Free Sample Request</button>
-
-  <div id="sampleModal" class="modal" onclick="if(event.target===this) closeModal()">
-    <div class="modal-inner">
-      <span class="close-x" onclick="closeModal()">&times;</span>
-      <h4 class="text-xl font-bold mb-2">Request a Free Sample Edit</h4>
-      <form action="https://formspree.io/f/mzzzkavq" method="POST" enctype="multipart/form-data">
-        <label class="block text-sm font-medium text-gray-700">Name</label>
-        <input name="name" required class="w-full p-2 border rounded mb-3" />
-        <label class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" name="email" required class="w-full p-2 border rounded mb-3" />
-        <label class="block text-sm font-medium text-gray-700">Service</label>
-        <select name="service" required class="w-full p-2 border rounded mb-3">
-          <option>Developmental Editing</option>
-          <option>Line Editing</option>
-          <option>Copyediting</option>
-          <option>Proofreading</option>
-          <option>Website Copy Review</option>
-          <option>Other</option>
-        </select>
-        <label class="block text-sm font-medium text-gray-700">Details</label>
-        <textarea name="details" rows="4" required class="w-full p-2 border rounded mb-3"></textarea>
-        <label class="block text-sm font-medium text-gray-700">Attachment (optional)</label>
-        <input type="file" name="attachment" class="w-full mb-3" />
-        <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded font-semibold">Submit Request</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function openModal(){ document.getElementById('sampleModal').style.display='flex'; }
-    function closeModal(){ document.getElementById('sampleModal').style.display='none'; }
-  </script>
 </body>
 </html>
