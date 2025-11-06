@@ -1,133 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Clarity Edit Works — Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity Edit Works</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Poppins', sans-serif; background:#f8fafc; margin:0; }
-    .hero { background: linear-gradient(135deg,#0f172a,#1e3a8a); color:white; padding:6rem 1rem; text-align:center; }
-    .service-card { transition: transform .25s, box-shadow .25s; }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(2,6,23,.12); }
-    .floating-btn { position:fixed; right:24px; bottom:24px; z-index:1000; background:#1e3a8a; color:#fff; padding:.8rem 1.2rem; border-radius:999px; box-shadow:0 8px 24px rgba(30,58,138,.22); cursor:pointer; font-weight:700; }
-    .floating-btn:hover { background:#2563eb; transform:scale(1.03); }
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:2000; align-items:center; justify-content:center; }
-    .modal-inner { background:#fff; border-radius:10px; width:92%; max-width:520px; padding:1.25rem 1.5rem; box-shadow:0 20px 40px rgba(2,6,23,.2); }
-    .close-x { float:right; font-weight:700; cursor:pointer; color:#444; }
+    body { box-sizing: border-box; margin:0; padding:0; }
+    .hero-gradient { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 100%); }
+    .service-card { transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; }
+    .service-card:hover { transform: translateY(-8px); box-shadow:0 12px 24px rgba(0,0,0,0.15); }
+    .cta-button { transition: all 0.3s ease; }
+    .cta-button:hover { transform: scale(1.05); box-shadow:0 8px 16px rgba(0,0,0,0.2); }
+    .page { display:none; }
+    .page.active { display:block; }
+    /* Floating button */
+    .floating-button { position: fixed; bottom: 30px; right: 30px; background:#2563eb; color:white; font-weight:bold; padding:15px 20px; border-radius:50px; cursor:pointer; z-index:1000; box-shadow:0 4px 12px rgba(0,0,0,0.25); }
+    .floating-button:hover { background:#1d4ed8; }
+    /* Overlay form */
+    .overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1001; }
+    .overlay.active { display:flex; }
+    .form-container { background:white; padding:30px; border-radius:12px; max-width:500px; width:90%; position:relative; }
+    .form-container h2 { font-size:1.5rem; margin-bottom:20px; }
+    .form-container input, .form-container select, .form-container textarea { width:100%; margin-bottom:15px; padding:10px; border-radius:6px; border:1px solid #ccc; }
+    .form-container button { background:#2563eb; color:white; font-weight:bold; padding:10px 20px; border:none; border-radius:6px; cursor:pointer; }
+    .form-container button:hover { background:#1d4ed8; }
+    .close-btn { position:absolute; top:10px; right:15px; font-size:1.2rem; cursor:pointer; }
+    .confirmation { color:green; font-weight:bold; display:none; margin-top:10px; }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div>
-        <h1 class="text-2xl font-bold text-gray-900">Clarity Edit Works</h1>
-        <div class="text-sm text-gray-500">Bringing writers’ imaginations to life, one word at a time.</div>
-      </div>
-      <nav class="space-x-6 hidden sm:block">
-        <a href="index.html" class="text-gray-700 hover:text-blue-700">Home</a>
-        <a href="developmental.html" class="text-gray-700 hover:text-blue-700">Developmental</a>
-        <a href="line.html" class="text-gray-700 hover:text-blue-700">Line</a>
-        <a href="copy.html" class="text-gray-700 hover:text-blue-700">Copy</a>
-        <a href="proof.html" class="text-gray-700 hover:text-blue-700">Proof</a>
-        <a href="sample.html" class="text-gray-700 hover:text-blue-700">Sample</a>
-      </nav>
-    </div>
+<div class="min-h-full flex flex-col">
+  <!-- Hero Section -->
+  <header class="hero-gradient text-white py-20 px-6 text-center">
+    <h1 class="text-5xl font-bold mb-4">Clarity Edit Works</h1>
+    <p class="text-xl opacity-90">Bringing writer's imaginations to life, one word at a time</p>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Professional editing for fiction & creative nonfiction</h2>
-      <p class="text-lg text-blue-100 max-w-2xl mx-auto">Precision, creativity, and confidence for every page — from manuscript structure to sentence-level polish.</p>
+  <!-- Main Content -->
+  <main class="flex-1">
+    <!-- Home Page -->
+    <div id="page-home" class="page active">
+      <!-- Services Overview Section -->
+      <section class="py-16 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">My Services</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('developmental')">
+              <div class="text-4xl mb-4">📖</div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-800">Developmental Editing</h3>
+              <p class="text-gray-600 mb-4">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript's foundation.</p>
+              <div class="text-blue-600 font-semibold">Learn More →</div>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('line')">
+              <div class="text-4xl mb-4">✍️</div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-800">Line Editing</h3>
+              <p class="text-gray-600 mb-4">Refining your prose line by line to enhance clarity, flow, and style while preserving your unique voice.</p>
+              <div class="text-blue-600 font-semibold">Learn More →</div>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card bg-gray-50 rounded-lg p-8 shadow-md" onclick="navigateToPage('copy')">
+              <div class="text-4xl mb-4">🔍</div>
+              <h3 class="text-2xl font-bold mb-3 text-gray-800">Copy Editing</h3>
+              <p class="text-gray-600 mb-4">Meticulous attention to grammar, punctuation, consistency, and formatting to polish your manuscript.</p>
+              <div class="text-blue-600 font-semibold">Learn More →</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section class="py-16 px-6 bg-gray-100 text-center">
+        <h2 class="text-4xl font-bold mb-6 text-gray-800">About My Approach</h2>
+        <p class="text-lg text-gray-700 leading-relaxed">I work closely with authors to understand their vision and help them achieve it. Whether you're writing your first novel or your tenth, I provide thoughtful, constructive feedback that respects your creative voice while elevating your work to its full potential.</p>
+      </section>
+      <!-- CTA Section -->
+      <section class="py-16 px-6 bg-white text-center">
+        <h2 class="text-3xl font-bold mb-6 text-gray-800">Ready to Perfect Your Manuscript?</h2>
+        <button class="cta-button bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg">Get Started Today</button>
+      </section>
     </div>
-  </section>
 
-  <!-- Services overview -->
-  <main class="py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h3>
-
-      <div class="grid gap-8 md:grid-cols-3">
-        <!-- Card 1 -->
-        <article class="service-card bg-white rounded-xl p-8 shadow">
-          <div class="text-4xl mb-3">📖</div>
-          <h4 class="text-xl font-semibold mb-2">Developmental Editing</h4>
-          <p class="text-gray-600 mb-4">Big-picture feedback on plot, structure, character, and pacing — ideal for first and second drafts.</p>
-          <a href="developmental.html" class="text-blue-700 font-semibold">Learn more →</a>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="service-card bg-white rounded-xl p-8 shadow">
-          <div class="text-4xl mb-3">✍️</div>
-          <h4 class="text-xl font-semibold mb-2">Line Editing</h4>
-          <p class="text-gray-600 mb-4">Sentence-level refinement to improve flow, tone, and readability while preserving your voice.</p>
-          <a href="line.html" class="text-blue-700 font-semibold">Learn more →</a>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="service-card bg-white rounded-xl p-8 shadow">
-          <div class="text-4xl mb-3">🔍</div>
-          <h4 class="text-xl font-semibold mb-2">Copy Editing & Proofreading</h4>
-          <p class="text-gray-600 mb-4">Grammar, punctuation, formatting, and final polish for publication-ready text.</p>
-          <a href="copy.html" class="text-blue-700 font-semibold">Learn more →</a>
-        </article>
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <small>© 2025 Clarity Edit Works. All rights reserved.</small>
-    </div>
-  </footer>
-
-  <!-- Floating button -->
-  <button class="floating-btn" onclick="openModal()">Free Sample Request</button>
-
-  <!-- Modal -->
-  <div id="sampleModal" class="modal" onclick="if(event.target===this) closeModal()">
-    <div class="modal-inner modal-content">
-      <span class="close-x" onclick="closeModal()">&times;</span>
-      <h4 class="text-xl font-bold mb-2">Request a Free Sample Edit</h4>
-      <p class="text-sm text-gray-600 mb-4">Choose a service and tell us what you'd like us to review. Up to 1,000 words free or a one-page website sample.</p>
-
-      <form action="https://formspree.io/f/mzzzkavq" method="POST" enctype="multipart/form-data">
-        <label class="block text-sm font-medium text-gray-700">Name</label>
-        <input name="name" required class="w-full p-2 border rounded mb-3" />
-
-        <label class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" name="email" required class="w-full p-2 border rounded mb-3" />
-
-        <label class="block text-sm font-medium text-gray-700">Service</label>
-        <select name="service" required class="w-full p-2 border rounded mb-3">
-          <option value="">— Select —</option>
-          <option>Developmental Editing</option>
-          <option>Line Editing</option>
-          <option>Copyediting</option>
-          <option>Proofreading</option>
-          <option>Website Copy Review</option>
-          <option>Other (please describe)</option>
-        </select>
-
-        <label class="block text-sm font-medium text-gray-700">Details</label>
-        <textarea name="details" rows="4" required class="w-full p-2 border rounded mb-3" placeholder="Briefly describe what you’d like reviewed..."></textarea>
-
-        <label class="block text-sm font-medium text-gray-700">Attachment (optional)</label>
-        <input type="file" name="attachment" class="w-full mb-3" />
-
-        <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded font-semibold">Submit Request</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function openModal(){ document.getElementById('sampleModal').style.display='flex'; }
-    function closeModal(){ document.getElementById('sampleModal').style.display='none'; }
-  </script>
-
-</body>
-</html>
+    <!-- Developmental Page -->
+    <div id="page-developmental" class="page">
+      <section class="py-16 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <button onclick="navigateToPage('home')" class="text-blue-600 hover:text-blue-800 font-semibold mb-6">← Back to Services</button>
+          <div class="bg-gray-50 rounded-lg p-12 shadow-lg">
+            <div class="text-center mb-8">
+              <div class="text-6xl mb-4">📖</div>
+              <h1 class="text-4xl font-bold mb-4 text-gray-800">Developmental Editing</h1>
+              <p class="text-xl text-gray-600 mb-8">Comprehensive feedback on plot, structure, character development, and pacing to strengthen your manuscript's foundation.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">What's Included:</h3>
+                <ul class="space-y-3 text-gray-700">
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Plot structure analysis and recommendations</li>
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Character development assessment</li>
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Pacing and tension evaluation</li>
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Theme and narrative arc guidance</li>
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Detailed editorial letter with actionable feedback</li>
+                  <li class="flex items-start"><span class="text-blue-600 mr-2">•</span>Chapter-by-chapter notes and suggestions</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Perfect For:</h3>
+                <ul class="space-y
